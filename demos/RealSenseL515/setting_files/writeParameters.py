@@ -1,13 +1,12 @@
 import pyrealsense2 as rs
 
 
-def to_file(profile, profile_color,depthMode, colorMode,realFPS,meas_unit_final,depth_sensor,postProcessStrs,folderPathToSave,filters):
+def to_file(profile, profile_color, meas_unit_final,depth_sensor,postProcessStrs,folderPathToSave,filters):
     stringToWrite="Mode "
-    stringToWrite+="Depth mode: " + str(depthMode)+": "+str(profile.as_video_stream_profile().width())+" x "+str(profile.as_video_stream_profile().height())+" @ "+str(profile.as_video_stream_profile().fps())+"\n"
-    stringToWrite += "Color mode: " + str(colorMode) + ": " + str(
-        profile_color.as_video_stream_profile().width()) + " x " + str(
+    stringToWrite+="Depth mode: " + str(profile.as_video_stream_profile().width())+" x " + \
+                   str(profile.as_video_stream_profile().height())+" @ "+str(profile.as_video_stream_profile().fps())+"\n"
+    stringToWrite += "Color mode: " + str(profile_color.as_video_stream_profile().width()) + " x " + str(
         profile_color.as_video_stream_profile().height()) + " @ " + str(profile_color.as_video_stream_profile().fps()) + "\n"
-    stringToWrite+="FPS imposed by user: "+str(realFPS)+"\n"
     stringToWrite+="Depth units: "+str(meas_unit_final)+"\n"
     preset_final=depth_sensor.get_option(rs.option.visual_preset)
     stringToWrite+="Preset: "+depth_sensor.get_option_value_description(rs.option.visual_preset,preset_final)+"\n"
