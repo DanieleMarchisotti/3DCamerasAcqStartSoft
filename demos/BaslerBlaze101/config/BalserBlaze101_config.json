@@ -1,0 +1,33 @@
+{
+    "max_frames": 1000,
+    "OperatingMode": "LongRange",
+    "FastMode": false,
+    "FilterSpatial": false,
+    "FilterTemporal": false,
+    "OutlierRemoval": false,
+    "ConfidenceThreshold": 16,
+    "GammaCorrection": false,
+    "DepthMin": 0,
+    "DepthMax": 9993,
+    "ExposureTime": 500,
+    "AcquisitionFrameRateEnable": true,
+    "AcquisitionFrameRate": 20,
+    "ComponentSelector": [
+        "Range",
+        "Intensity",
+        "Confidence"
+    ],
+    "ComponentEnable": [
+        true,
+        false,
+        false
+    ],
+    "PixelFormat": [
+        "Coord3D_ABC32f",
+        "Mono16",
+        "Confidence16"
+    ],
+    "TriggerMode": "Off",
+    "TriggerSource": "Software",
+    "WindowSizeDistComp": 100
+}
