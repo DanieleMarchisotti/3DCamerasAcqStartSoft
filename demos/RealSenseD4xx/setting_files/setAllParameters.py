@@ -7,6 +7,8 @@ def set_parameters(depth_sensor):
         print("Depth units range (mm per unit) = ",meas_unit.min , "~", meas_unit.max)
         meas_unit_selected=float(input("Select the number of meters per unit: "))
         depth_sensor.set_option(rs.option.depth_units,meas_unit_selected)
+    else:
+        meas_unit_selected = meas_unit.min
     preset_range = depth_sensor.get_option_range(rs.option.visual_preset)
     for i in range(int(preset_range.max)):
         visulpreset = depth_sensor.get_option_value_description(rs.option.visual_preset,i)
