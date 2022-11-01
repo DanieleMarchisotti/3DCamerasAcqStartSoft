@@ -1,0 +1,21 @@
+{
+    "frames_num": 10000,
+    "cti_file": "C:/Program Files/FLIR Systems/Spinnaker/cti64/vs2015/FLIR_GenTL_v140.cti",
+    "TriggerSource": "Line0",
+    "TriggerActivation": "RisingEdge",
+    "TriggerMode": "On",
+    "TriggerSelector": "FrameStart",
+    "AcquisitionBurstFrameCount": 800,
+    "ExposureMode": "Timed",
+    "ExposureAuto": "Off",
+    "GainAuto": "Off",
+    "AcquisitionMode": "Continuous",
+    "Gain": 10,
+    "AcquisitionFrameRateEnable": 0,
+    "ExposureTime": 1000,
+    "AcquisitionFrameRate": 30,
+    "Width": 1240,
+    "Height": 1080,
+    "OffsetX": 200,
+    "OffsetY": 0
+}
