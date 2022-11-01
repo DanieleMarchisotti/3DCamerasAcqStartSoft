@@ -117,7 +117,19 @@ if __name__ == '__main__':
         cv2.imwrite("%s/%06d.png" % \
                     (path_color, i), color_image)
         i+=1
-        cv2.imshow("Acquisition",depth_image * meas_unit_final/10)
+        # Remove background - Set pixels further than clipping_distance to grey
+        grey_color = 153
+        # depth image is 1 channel, color is 3 channels
+        depth_image_3d = np.dstack((depth_image, depth_image, depth_image))
+        bg_removed = np.where((depth_image_3d > clipping_distance) | \
+                              (depth_image_3d <= 0), grey_color, color_image)
+        # Render images
+        depth_colormap = cv2.applyColorMap(
+            cv2.convertScaleAbs(depth_image, alpha=0.09), cv2.COLORMAP_JET)
+        images = np.hstack((bg_removed, depth_colormap))
+        cv2.namedWindow('Recorder Realsense', cv2.WINDOW_NORMAL)
+        cv2.resizeWindow('Recorder Realsense', min(len(images[0]), 1280), min(len(images), 480))
+        cv2.imshow('Recorder Realsense', images)
         key = cv2.waitKey(1)
         if key==27:
             break
